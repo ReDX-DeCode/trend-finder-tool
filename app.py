@@ -44,15 +44,26 @@ def open_popunder():
 
 # --------- Helper: Fake Keyword Scraper ---------
 def get_keywords(platform, niche):
-    """Fake keyword finder using random samples (replace with real scraping later)"""
+    """Fake keyword finder using random samples (safe version)"""
     samples = {
         "Animals": ["cute dogs", "funny cats", "baby animals", "wildlife facts", "pet hacks", "dog breeds", "cat toys", "animal memes", "rescue animals", "fish tanks"],
         "Fashion": ["summer outfits", "streetwear 2025", "vintage fashion", "DIY jewelry", "men's trends", "korean fashion", "fall lookbook", "eco fashion", "designer bags", "trendy shoes"],
         "Technology": ["AI tools", "iPhone tips", "latest gadgets", "coding hacks", "Python tutorials", "tech reviews", "streaming devices", "VR games", "cloud tools", "robotics 2025"],
-        # Add more niches...
+        "Fitness": ["home workouts", "fat burn tips", "gym diet", "yoga basics", "muscle building", "fitness vlogs", "stretching guide", "HIIT training", "workout gear", "healthy habits"],
+        "Food": ["easy recipes", "vegan meals", "snack ideas", "food hacks", "meal prep", "baking tips", "restaurant review", "healthy snacks", "grilled chicken", "air fryer meals"],
+        "Gaming": ["top 10 games", "mobile gaming", "gta 6 leaks", "fps skills", "gaming setup", "esports news", "streaming tips", "horror games", "game reviews", "console wars"],
+        "Education": ["study hacks", "exam tips", "learn Python", "math tricks", "study motivation", "free courses", "student planner", "college prep", "note taking", "learn AI"],
+        "Health": ["mental health", "sleep hacks", "meditation apps", "stress relief", "skin care", "immunity tips", "hydration facts", "doctor advice", "cold remedies", "health goals"],
+        "Business": ["startup tips", "business ideas", "side hustle", "investing guide", "freelance tips", "digital marketing", "ecommerce trends", "growth hacks", "sales tricks", "brand building"],
+        "DIY": ["diy crafts", "home decor", "make candles", "recycled art", "budget makeover", "handmade gifts", "diy storage", "room decor", "wall painting", "plant pots"]
     }
+
     time.sleep(2)  # Simulate loading
-    return random.sample(samples.get(niche, []), 10)
+    keywords = samples.get(niche, [])
+    if len(keywords) < 10:
+        return keywords
+    return random.sample(keywords, 10)
+
 
 # --------- MAIN ACTION ---------
 if find_btn:
