@@ -69,7 +69,7 @@ def get_keywords(platform, niche):
 
 # --------- Adsterra Link Function ---------
 def open_ad_link():
-    ad_url = "https://your-adsterra-direct-link.com"  # Replace with your actual ad link
+    ad_url = "google.com"  # Replace with your actual ad link
     st.markdown(f"""
         <meta http-equiv="refresh" content="0;URL='{ad_url}'" />
     """, unsafe_allow_html=True)
