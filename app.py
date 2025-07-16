@@ -66,18 +66,33 @@ def get_keywords(platform, niche):
 
 
 # --------- MAIN ACTION ---------
+
+# --------- Adsterra Link Function ---------
+def open_ad_link():
+    ad_url = "https://your-adsterra-direct-link.com"  # Replace with your actual ad link
+    st.markdown(f"""
+        <meta http-equiv="refresh" content="0;URL='{ad_url}'" />
+    """, unsafe_allow_html=True)
+
+# --------- FIND BUTTON LOGIC ---------
 if find_btn:
     with st.spinner("🔄 Searching for trending keywords..."):
-        open_popunder()
+        open_ad_link()  # Show Adsterra link
         keywords = get_keywords(platform, niche)
         result_text = "\n".join(keywords)
         result_box.text_area("🎯 Trending Keywords", value=result_text, height=200)
         st.session_state["keywords"] = result_text
 
+# --------- DOWNLOAD BUTTON LOGIC ---------
 if download_btn:
     if "keywords" in st.session_state:
-        open_popunder()
+        open_ad_link()  # Show Adsterra link again
         filename = f"{platform.lower()}_{niche.lower()}_{datetime.now().strftime('%Y%m%d%H%M')}.txt"
-        st.download_button("📥 Click to Download", st.session_state["keywords"], file_name=filename)
+        st.download_button(
+            label="📥 Click to Download",
+            data=st.session_state["keywords"],
+            file_name=filename,
+            mime="text/plain"
+        )
     else:
-        st.warning("Please generate keywords first.")
+        st.warning("⚠️ Please generate keywords first using the Find button.")
