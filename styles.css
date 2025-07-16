@@ -1,25 +1,69 @@
 /* styles.css */
 body {
     background-color: #f9f9f9;
-    font-family: 'Segoe UI', sans-serif;
+    font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+    text-align: center; /* Center all text by default */
 }
 
+/* Main title */
 h1.main-title {
-    text-align: center;
     color: #FF5722;
-    font-size: 2.5em;
-    margin-bottom: 10px;
+    font-size: 2.8em;
+    margin-bottom: 20px;
 }
 
-.stSelectbox label, .stButton button {
-    font-size: 1.1em;
-    color: #333;
+/* Center Streamlit labels and inputs */
+.stSelectbox label, 
+.stSelectbox > div > div > div > div > div, /* dropdown text */
+.stButton button, 
+textarea {
+    display: block;
+    margin-left: auto !important;
+    margin-right: auto !important;
+    text-align: center !important;
 }
 
-button {
+/* Style buttons */
+.stButton > button {
     background-color: #00bfa5 !important;
     color: white !important;
-    border-radius: 10px !important;
-    padding: 10px 15px !important;
-    font-size: 16px !important;
+    border-radius: 12px !important;
+    padding: 12px 25px !important;
+    font-size: 18px !important;
+    cursor: pointer;
+    width: 180px;
+    margin: 15px auto !important;
+    transition: background-color 0.3s ease;
+}
+
+.stButton > button:hover {
+    background-color: #009e88 !important;
+}
+
+/* Result text area */
+textarea {
+    font-size: 1.1em !important;
+    border-radius: 12px !important;
+    padding: 15px !important;
+    max-width: 600px !important;
+    width: 90% !important;
+    min-height: 180px !important;
+}
+
+/* Dropdown width */
+.stSelectbox > div > div {
+    max-width: 400px !important;
+    margin: 0 auto !important;
+}
+
+/* Spinner (loading) */
+[data-testid="stSpinner"] {
+    margin: 30px auto !important;
+}
+
+/* Make sure columns center content */
+.css-1vq4p4l {
+    display: flex;
+    justify-content: center;
+    gap: 40px;
 }
