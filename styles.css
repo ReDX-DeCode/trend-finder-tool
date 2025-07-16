@@ -2,7 +2,7 @@
 body {
     background-color: #f9f9f9;
     font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
-    text-align: center; /* Center all text by default */
+    text-align: center;
 }
 
 /* Main title */
@@ -14,7 +14,7 @@ h1.main-title {
 
 /* Center Streamlit labels and inputs */
 .stSelectbox label, 
-.stSelectbox > div > div > div > div > div, /* dropdown text */
+.stSelectbox > div > div > div > div > div, 
 .stButton button, 
 textarea {
     display: block;
@@ -56,14 +56,14 @@ textarea {
     margin: 0 auto !important;
 }
 
-/* Spinner (loading) */
+/* Spinner */
 [data-testid="stSpinner"] {
     margin: 30px auto !important;
 }
 
-/* Make sure columns center content */
+/* Columns layout */
 .css-1vq4p4l {
-    display: flex;
-    justify-content: center;
-    gap: 40px;
+    display: flex !important;
+    justify-content: center !important;
+    gap: 30px !important;
 }
