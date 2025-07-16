@@ -67,26 +67,17 @@ def get_keywords(platform, niche):
 
 # --------- MAIN ACTION ---------
 
-# --------- Adsterra Link Function ---------
-def open_ad_link():
-    ad_url = "google.com"  # Replace with your actual ad link
-    st.markdown(f"""
-        <meta http-equiv="refresh" content="0;URL='{ad_url}'" />
-    """, unsafe_allow_html=True)
-
 # --------- FIND BUTTON LOGIC ---------
 if find_btn:
     with st.spinner("🔄 Searching for trending keywords..."):
-        open_ad_link()  # Show Adsterra link
-        keywords = get_keywords(platform, niche)
-        result_text = "\n".join(keywords)
-        result_box.text_area("🎯 Trending Keywords", value=result_text, height=200)
-        st.session_state["keywords"] = result_text
+        keywords = get_keywords(platform, niche)  # Generate 10 keywords
+        result_text = "\n".join(keywords)  # Join as text block
+        result_box.text_area("🎯 Trending Keywords", value=result_text, height=200)  # Show result
+        st.session_state["keywords"] = result_text  # Store in session
 
 # --------- DOWNLOAD BUTTON LOGIC ---------
 if download_btn:
     if "keywords" in st.session_state:
-        open_ad_link()  # Show Adsterra link again
         filename = f"{platform.lower()}_{niche.lower()}_{datetime.now().strftime('%Y%m%d%H%M')}.txt"
         st.download_button(
             label="📥 Click to Download",
