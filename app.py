@@ -46,7 +46,7 @@ with col1:
     find_btn = st.button("🔍 Find Keywords")
 
 with col2:
-    download_btn = st.button("⬇️ Download Result")
+    download_btn = st.button("⬇️ Download")
 
 # --------- Main Action ---------
 result_box = st.empty()
